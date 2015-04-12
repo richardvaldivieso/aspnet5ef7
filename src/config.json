@@ -1,0 +1,12 @@
+{
+    "Data": {
+        "DefaultConnection": {
+            "ConnectionString": "Server={your_sql_server_host_name};Database={your_database};User ID={your_username};Password={your_passowrd};Trusted_Connection=False;Encrypt=False;Connection Timeout=30;"
+        }
+    },
+    "EntityFramework": {
+        "DemoContext": {
+            "ConnectionString": "Data:DefaultConnection:ConnectionString"
+        }
+    }
+}
