@@ -16,6 +16,8 @@ namespace aspnetefdemo {
 
     public IEnumerable<Country> Index()
     {
+      ////this.dataContext.Countries.Add(new Country { CountryName = "Syberia" });
+      ////this.dataContext.SaveChanges();
       return this.dataContext.Countries;
     }
   }

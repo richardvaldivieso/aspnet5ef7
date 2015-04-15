@@ -6,6 +6,8 @@ using Microsoft.AspNet.Builder;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Data.Entity;
+using Microsoft.AspNet.Diagnostics;
+using Microsoft.AspNet.Diagnostics.Entity;
 
 //// To run this application following instructions:
 //// 1). Setup proper connection string credentials in config.json
@@ -35,12 +37,14 @@ namespace aspnetefdemo
 
     public void Configure(IApplicationBuilder app)
     {
+      app.UseErrorPage(ErrorPageOptions.ShowAll);
+      app.UseDatabaseErrorPage(DatabaseErrorPageOptions.ShowAll);
       app.UseMvc(routes =>
       {
         routes.MapRoute(
         name: "default",
         template: "{controller}/{action}/{id?}",
-        defaults: new { controller = "Country", action = "Index" });
+        defaults: new { controller = "County", action = "Index" });
       });
     }
   }
