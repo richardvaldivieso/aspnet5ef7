@@ -21,7 +21,7 @@ namespace aspnet5ef7.Migrations
         {
             get
             {
-                return "7.0.0-beta3-12166";
+                return "7.0.0-beta4-12943";
             }
         }
         
