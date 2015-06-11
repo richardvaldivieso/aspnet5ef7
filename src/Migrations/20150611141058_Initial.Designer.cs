@@ -12,7 +12,7 @@ namespace src.Migrations
     {
         public override string Id
         {
-            get { return "20150611133056_Initial"; }
+            get { return "20150611141058_Initial"; }
         }
         
         public override string ProductVersion

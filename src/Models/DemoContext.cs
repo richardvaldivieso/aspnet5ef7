@@ -20,7 +20,7 @@ namespace aspnetefdemo {
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            builder.UseSqlServer(@"Server={your_db_host_name};Database={your_db_name};User ID={your_db_user};Password={your_db_password};Trusted_Connection=False;Encrypt=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer(@"Server={your_db_host_name};Database={your_db_name};User ID={your_db_user};Password={your_db_password};Trusted_Connection=False;Encrypt=False;Connection Timeout=30;");
         }
   }
 }
