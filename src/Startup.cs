@@ -1,13 +1,20 @@
 using System;
-using Microsoft.Framework.ConfigurationModel;
-using Microsoft.Framework.ConfigurationModel.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 using Microsoft.AspNet.Builder;
-using Microsoft.Framework.DependencyInjection;
-using Microsoft.AspNet.Hosting;
-using Microsoft.Data.Entity;
 using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Diagnostics.Entity;
+using Microsoft.AspNet.Hosting;
+using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Routing;
+using Microsoft.Data.Entity;
+using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.ConfigurationModel.Json;
+using Microsoft.Framework.DependencyInjection;
+using Microsoft.Framework.Logging;
+using Microsoft.Framework.Runtime;
 
 //// To run this application following instructions:
 //// 1). Setup proper connection string credentials in config.json
@@ -30,9 +37,9 @@ namespace aspnetefdemo
       services.AddMvc();
 
       services
-      .AddEntityFramework(Configuration)
+      .AddEntityFramework()
       .AddSqlServer()
-      .AddDbContext<DemoContext>();
+      .AddDbContext<DemoContext>(options => options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
     }
 
     public void Configure(IApplicationBuilder app)
